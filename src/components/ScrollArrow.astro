@@ -1,0 +1,88 @@
+<!-- Indicador de scroll -->
+<div
+  id="scroll-indicator"
+  class="fixed bottom-4 right-4 z-50 transition-transform duration-300"
+>
+  <div
+    id="arrow-down"
+    class="bg-emerald-light hover:bg-emerald-dark text-white p-2 rounded-full shadow-lg cursor-pointer"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+  <div
+    id="arrow-up"
+    class="bg-emerald-light hover:bg-emerald-dark text-white p-2 rounded-full shadow-lg cursor-pointer hidden"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </div>
+</div>
+
+<style>
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script is:inline>
+  const arrowDown = document.getElementById("arrow-down");
+  const arrowUp = document.getElementById("arrow-up");
+
+  // Función para verificar si el usuario está al final de la página
+  function checkScroll() {
+    const isAtBottom =
+      window.innerHeight + window.scrollY - 10 >= document.body.offsetHeight;
+
+  console.log(`${window.innerHeight} + ${window.scrollY} >= ${document.body.offsetHeight}`);
+    if (isAtBottom) {
+      arrowDown.classList.add("hidden"); // Rota la flecha hacia arriba
+      arrowUp.classList.remove("hidden");
+    } else {
+      arrowDown.classList.remove("hidden"); // Rota la flecha hacia abajo
+      arrowUp.classList.add("hidden");
+    }
+  }
+
+  arrowDown.addEventListener("click", () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  });
+
+  arrowUp.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  // Escucha el evento de scroll
+  window.addEventListener("scroll", checkScroll);
+
+  // Verifica el estado inicial al cargar la página
+  checkScroll();
+</script>
