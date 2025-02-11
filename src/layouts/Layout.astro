@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import HeaderBlock from "../components/HeaderBlock.astro";
+import ScrollArrow from "../components/ScrollArrow.astro";
+import FooterBlock from "../components/FooterBlock.astro";
 ---
 <!doctype html>
 <html lang="en">
@@ -14,6 +16,8 @@ import HeaderBlock from "../components/HeaderBlock.astro";
 	<body>
 		<HeaderBlock />
 		<slot />
+		<ScrollArrow />
+		<FooterBlock />
 	</body>
 </html>
 
