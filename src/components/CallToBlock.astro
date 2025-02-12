@@ -1,7 +1,7 @@
-<div class="call-to min-h-96">
+<div class="call-to md:min-h-96">
   <h2 class="text-center">
     <span
-      class="inline-block text-3xl p-6 bg-emerald-light text-blue-call -mt-20 rounded-xs shadow-lg z-10"
+      class="block md:inline-block text-xl md:text-2xl lg:text-3xl p-2 sm:p-4 md:p-6 bg-emerald-light text-blue-call md:-mt-10 lg:-mt-20 md:rounded-xs shadow-lg z-10"
       >Publicación de la convocatoria<br class="mb-4" />24 de febrero de 2025</span
     >
   </h2>
@@ -14,13 +14,13 @@
         type="email"
         name="email"
         id="email"
-        class="block w-1/3 mx-auto bg-gray-100 border border-gray-300 p-2 my-3 rounded-sm text-center"
+        class="block w-full sm:w-3/4 md:w-1/2 lg:w-1/3 mx-auto bg-gray-100 border border-gray-300 p-2 my-3 rounded-sm text-center"
         placeholder="Registra aquí tu correo electrónico"
         required="required"
       />
       <button
         type="submit"
-        class="bg-emerald-light hover:bg-emerald-dark hover:text-white mt-4 py-2 px-4 rounded"
+        class="w-full sm:w-3/4 md:w-1/4 bg-emerald-light hover:bg-emerald-dark hover:text-white mt-4 py-2 px-4 rounded"
         >¡Sí quiero!</button
       >
     </form>
@@ -76,7 +76,8 @@
     .addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const email = document.getElementById("email").value;
+      const emailInput = document.getElementById('email');
+      const email = emailInput.value;
 
       try {
         const response = await fetch("https://ada.bunam.unam.mx/mo-api/collect", {
@@ -89,6 +90,7 @@
 
         if (response.ok) {
           showModal(); // Mostrar el modal si el correo se registra correctamente
+          emailInput.value = ''; // Limpiar el campo de correo
         } else {
           alert(result.message || "Hubo un error al procesar tu solicitud.");
         }
