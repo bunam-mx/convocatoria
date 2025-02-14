@@ -66,3 +66,8 @@ article.call-to-what {
 article.call-to-what strong {
   text-shadow: 2px 2px 2px rgba(75, 75, 75, 0.1);
 }
+
+article.call-to-register {
+  background: url(/convocatoria/bg-call-register.jpg) no-repeat bottom center fixed;
+  background-size: cover;
+}
