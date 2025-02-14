@@ -1,0 +1,23 @@
+---
+// src/components/GoogleAnalytics.astro
+const GA_TRACKING_ID = import.meta.env.PUBLIC_GA_TRACKING_ID;
+---
+
+<script
+  async
+  src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+></script>
+<script>
+  declare global {
+    interface Window {
+      dataLayer: any[];
+    }
+  }
+  window.dataLayer = window.dataLayer || [];
+  function gtag(...args: any[]) {
+    window.dataLayer.push(arguments);
+  }
+  // Initialize Google Analytics
+  gtag("js", new Date());
+  gtag("config", `${import.meta.env.PUBLIC_GA_TRACKING_ID}`);
+</script>
