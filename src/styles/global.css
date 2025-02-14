@@ -24,3 +24,45 @@ body {
 .header span {
   display: block;
 }
+
+article p, article li {
+  @apply text-lg leading-relaxed;
+}
+
+article h3 {
+  @apply text-xl md:text-3xl my-6 font-semibold;
+}
+
+article h4 {
+  @apply my-8 text-lg md:text-xl font-semibold;
+}
+
+article.why-block {
+  h3, h4, strong {
+    @apply text-emerald-dark;
+  }
+  p, li {
+    @apply md:text-base lg:text-xl;
+  }
+  h3 {
+    @apply md:text-2xl lg:text-3xl;
+  }
+  h4 {
+    @apply md:text-lg lg:text-xl;
+  }
+}
+
+article.how-block {
+  h3, h4, strong {
+    @apply text-blue-call;
+  }
+}
+
+article.call-to-what {
+  background: url(/convocatoria/bg-call-what.jpg) no-repeat bottom center fixed;
+  background-size: cover;
+}
+
+article.call-to-what strong {
+  text-shadow: 2px 2px 2px rgba(75, 75, 75, 0.1);
+}
