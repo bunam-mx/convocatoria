@@ -4,7 +4,11 @@
 
 @theme {
   --font-call: 'Montserrat', sans-serif;
-  --color-blue-call: oklch(38.1% 0.2363 266.3);
+  --color-blue-call: oklch(0.322 0.1403 261.13);
+  --color-blue-ulight: oklch(0.5441 0.1061 262.255);
+  --color-blue-light: oklch(0.3169 0.149496 262.255);
+  --color-yellow-call: oklch(0.7697 0.168881 68.0321);
+  --color-gold-call: oklch(0.7344 0.1491 86.43);
   --color-emerald-dark: oklch(68.07% 0.1255 170.97);
   --color-black-call: oklch(26.13% 0.0447 192.37);
   --color-emerald-light: oklch(89.29% 0.1699 169.35);
@@ -14,11 +18,11 @@
 body {
   font-family: var(--font-call);
   color: var(--color-black-call);
-  background-color: var(--color-white-call);
+  @apply bg-white;
 }
 
 .header {
-  background: url(/convocatoria/background-call.jpg) no-repeat bottom center fixed;
+  background: url(/convocatoria/background-call.png) no-repeat bottom center;
   background-size: cover;
 }
 .header span {
@@ -42,7 +46,7 @@ article, section.call-to {
 
 article.why-block {
   h3, h4, strong {
-    @apply text-emerald-dark;
+    @apply text-yellow-call;
   }
 }
 
